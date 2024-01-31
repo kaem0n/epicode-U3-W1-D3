@@ -92,13 +92,19 @@ class AllTheBooks extends Component {
             </Col>
           </Row>
           <Row className="g-3" xs={2} md={3} lg={4} xl={5} xxl={6}>
-            {this.state.searchText === ''
-              ? this.state.genreSelected.map((book) => {
-                  return <SingleBook book={book} key={book.asin} />
-                })
-              : this.filter().map((book) => {
-                  return <SingleBook book={book} key={book.asin} />
-                })}
+            {this.state.searchText === '' ? (
+              this.state.genreSelected.map((book) => {
+                return <SingleBook book={book} key={book.asin} />
+              })
+            ) : this.filter().length !== 0 ? (
+              this.filter().map((book) => {
+                return <SingleBook book={book} key={book.asin} />
+              })
+            ) : (
+              <h1 className="flex-grow-1 text-center text-secondary mt-5">
+                Nessun libro trovato.
+              </h1>
+            )}
           </Row>
         </Container>
       </>
