@@ -47,8 +47,8 @@ class AllTheBooks extends Component {
       <>
         <Container fluid className="mb-5">
           <Row className="mb-3">
-            <Col xs={1}>
-              <Dropdown>
+            <Col xs={12} md={8} lg={6} xxl={4} className="d-flex">
+              <Dropdown className="me-2">
                 <Dropdown.Toggle variant="dark">Generi</Dropdown.Toggle>
                 <Dropdown.Menu>
                   <Dropdown.Item
@@ -78,9 +78,7 @@ class AllTheBooks extends Component {
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
-            </Col>
-            <Col xs={4}>
-              <Form className="d-flex" onSubmit={this.handleSubmit}>
+              <Form className="flex-grow-1" onSubmit={this.handleSubmit}>
                 <Form.Control
                   type="search"
                   placeholder="Cerca un libro"
