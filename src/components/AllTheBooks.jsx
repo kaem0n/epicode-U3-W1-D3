@@ -13,9 +13,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Dropdown from 'react-bootstrap/Dropdown'
-import Button from 'react-bootstrap/Button'
-import Card from 'react-bootstrap/Card'
-import Badge from 'react-bootstrap/Badge'
+import SingleBook from './SingleBook'
 
 // COMPONENT FUNCTION
 
@@ -63,52 +61,13 @@ class AllTheBooks extends Component {
           </Row>
           <Row className="g-3" xs={2} md={3} lg={4} xl={5} xxl={6}>
             {this.state.genreSelected.map((book) => {
-              return (
-                <Col key={book.asin}>
-                  <Card className="h-100">
-                    <Card.Img variant="top" src={book.img} />
-                    <Card.Body className="d-flex flex-column justify-content-between">
-                      <div className="mb-2">
-                        <Card.Title>{book.title}</Card.Title>
-                        <Card.Subtitle>
-                          <Badge bg="danger">ASIN: {book.asin}</Badge>
-                        </Card.Subtitle>
-                      </div>
-                      <div>
-                        <Card.Text className="m-0">
-                          <span className="fw-bold">Categoria:</span>{' '}
-                          {book.category}
-                        </Card.Text>
-                        <Card.Text>
-                          <span className="fw-bold">Prezzo:</span>{' '}
-                          {fixPrice(String(book.price))}€
-                        </Card.Text>
-                        <Button variant="dark" className="w-100">
-                          Aggiungi al carrello
-                        </Button>
-                      </div>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              )
+              return <SingleBook book={book} key={book.asin} />
             })}
           </Row>
         </Container>
       </>
     )
   }
-}
-
-// OTHER FUNCTIONS
-
-const fixPrice = (str) => {
-  let text = str.replace('.', ',')
-  if (text.slice(text.indexOf(',')).length === 2) {
-    text += '0'
-  } else if (text.indexOf(',') === -1) {
-    text += ',00'
-  }
-  return text
 }
 
 // EXPORT

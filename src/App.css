@@ -4,3 +4,7 @@
   font-family: 'Salsa', cursive;
   color: brown;
 }
+
+.card img {
+  cursor: pointer;
+}
