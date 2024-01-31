@@ -1,8 +1,12 @@
+// COMPONENT IMPORTS
+
 import { Component } from 'react'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 import Badge from 'react-bootstrap/Badge'
 import Button from 'react-bootstrap/Button'
+
+// COMPONENT FUNCTION
 
 class SingleBook extends Component {
   state = {
@@ -60,6 +64,8 @@ class SingleBook extends Component {
   }
 }
 
+// OTHER FUNCTIONS
+
 const fixPrice = (str) => {
   let text = str.replace('.', ',')
   if (text.slice(text.indexOf(',')).length === 2) {
@@ -81,5 +87,7 @@ const toCapitalize = (str) => {
   }
   return text
 }
+
+// EXPORT
 
 export default SingleBook
