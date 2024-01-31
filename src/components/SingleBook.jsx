@@ -24,7 +24,11 @@ class SingleBook extends Component {
     return (
       <Col>
         <Card className={this.state.selectedClass + 'h-100'}>
-          <Card.Img variant="top" src={this.props.book.img} />
+          <Card.Img
+            variant="top"
+            src={this.props.book.img}
+            onClick={this.setSelected}
+          />
           <Card.Body className="d-flex flex-column justify-content-between">
             <div className="mb-2">
               <Card.Title>{this.props.book.title}</Card.Title>
