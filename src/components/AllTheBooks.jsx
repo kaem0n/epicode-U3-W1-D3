@@ -14,7 +14,6 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Dropdown from 'react-bootstrap/Dropdown'
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
 import SingleBook from './SingleBook'
 
 // COMPONENT FUNCTION
@@ -27,14 +26,15 @@ class AllTheBooks extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.setState({ searchText: '' })
   }
 
   filter = () => {
     const filteredBooks = []
     for (let i = 0; i < this.state.genreSelected.length; i++) {
       if (
-        this.state.genreSelected[i].title.indexOf(this.state.searchText) !== -1
+        this.state.genreSelected[i].title
+          .toLowerCase()
+          .indexOf(this.state.searchText) !== -1
       ) {
         filteredBooks.push(this.state.genreSelected[i])
       }
@@ -46,7 +46,7 @@ class AllTheBooks extends Component {
     return (
       <>
         <Container fluid className="mb-5">
-          <Row className="mb-3 justify-content-between">
+          <Row className="mb-3">
             <Col xs={1}>
               <Dropdown>
                 <Dropdown.Toggle variant="dark">Generi</Dropdown.Toggle>
@@ -90,9 +90,6 @@ class AllTheBooks extends Component {
                     this.setState({ searchText: e.target.value })
                   }
                 />
-                <Button type="submit" variant="dark">
-                  Cerca
-                </Button>
               </Form>
             </Col>
           </Row>
