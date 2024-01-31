@@ -16,7 +16,7 @@ class SingleBook extends Component {
       this.setState({ selectedClass: '' })
     } else {
       this.setState({ selected: true })
-      this.setState({ selectedClass: 'border-3 border-danger ' })
+      this.setState({ selectedClass: 'border-4 border-danger ' })
     }
   }
 
