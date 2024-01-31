@@ -35,7 +35,7 @@ class SingleBook extends Component {
             <div>
               <Card.Text className="m-0">
                 <span className="fw-bold">Categoria:</span>{' '}
-                {this.props.book.category}
+                {toCapitalize(this.props.book.category)}
               </Card.Text>
               <Card.Text>
                 <span className="fw-bold">Prezzo:</span>{' '}
@@ -62,6 +62,18 @@ const fixPrice = (str) => {
     text += '0'
   } else if (text.indexOf(',') === -1) {
     text += ',00'
+  }
+  return text
+}
+
+const toCapitalize = (str) => {
+  let text
+  if (str === 'scifi') {
+    text = 'Sci-Fi'
+  } else {
+    const textArray = str.split('')
+    textArray[0] = textArray[0].toUpperCase()
+    text = textArray.join('')
   }
   return text
 }
